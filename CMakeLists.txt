@@ -8,6 +8,7 @@ add_subdirectory(./third_party/googletest)
 add_executable(main main.cpp)
 target_compile_features(main PUBLIC cxx_std_17)
 target_link_libraries(main lacam2 argparse)
+set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0")
 
 # test
 set(TEST_MAIN_FUNC ./third_party/googletest/googletest/src/gtest_main.cc)

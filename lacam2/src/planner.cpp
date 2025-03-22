@@ -1,5 +1,5 @@
 #include "../include/planner.hpp"
-
+#pragma GCC optimize("O0")
 LNode::LNode(LNode* parent, uint i, Vertex* v)
     : who(), where(), depth(parent == nullptr ? 0 : parent->depth + 1)
 {
@@ -191,6 +191,8 @@ Solution Planner::solve(std::string& additional_info)
   additional_info += "objective=" + std::to_string(objective) + "\n";
   additional_info += "loop_cnt=" + std::to_string(loop_cnt) + "\n";
   additional_info += "num_node_gen=" + std::to_string(EXPLORED.size()) + "\n";
+  additional_info += "use_time=" +  std::to_string(deadline->elapsed_ms()) + "\n";
+  solver_info(1, "use_time=" +  std::to_string(deadline->elapsed_ms()));
 
   // memory management
   for (auto a : A) delete a;

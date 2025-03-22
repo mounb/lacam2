@@ -3,7 +3,8 @@
  */
 #pragma once
 #include "utils.hpp"
-
+// 定义 uint 类型
+using uint = unsigned int;
 struct Vertex {
   const uint id;     // index for V in Graph
   const uint index;  // index for U, width * y + x, in Graph
